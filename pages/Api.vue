@@ -1,17 +1,40 @@
 <template>
  <div class="row">
      <div class="row">
-        <h1 class="m-3" >Schedule Your Visit Today!</h1>
+        <h1 class="m" >Schedule Your Visit Today!</h1>
       </div>
-    <div class="col m-3" md="auto">
-      <b-calendar v-model="value" @context="onContext" locale="en-US"></b-calendar>
+    <div class="row m-3">
+        <div class="col text-center" md="auto">
+        <b-calendar v-model="value" @context="onContext" locale="en-US"></b-calendar>
+        </div>
+        <div class="col"> 
+            <div class="form-group pb-3">
+                <label for="inputName">Name</label>
+                <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name">
+            </div>
+            <div class="form-group pb-3">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group pb-3">
+                <label for="bringingOthers">Scheduling for a group?</label>
+                <input type="checkbox" class="form-check-input" id="bringingOthers">
+                <label class="form-check-label" for="bringingOthers">Yes / No</label>
+                <input type="name" class="form-control" id="inputCount" aria-describedby="nameHelo" placeholder="Party total">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
     </div>
-    <div class="col m-3">
+  </div>
+
+<!-- <div class=" col m-3">
       <p>Value: <b>'{{ value }}'</b></p>
       <p class="mb-0">Context:</p>
       <pre class="small">{{ context }}</pre>
-    </div>
-  </div>
+    </div> -->
+
 </template>
 
 <script>
