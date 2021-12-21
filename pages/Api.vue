@@ -1,9 +1,12 @@
 <template>
  <div class="row">
-    <div class="col" md="auto">
+     <div class="row">
+        <h1 class="m-3" >Schedule Your Visit Today!</h1>
+      </div>
+    <div class="col m-3" md="auto">
       <b-calendar v-model="value" @context="onContext" locale="en-US"></b-calendar>
     </div>
-    <div class="col">
+    <div class="col m-3">
       <p>Value: <b>'{{ value }}'</b></p>
       <p class="mb-0">Context:</p>
       <pre class="small">{{ context }}</pre>
