@@ -17,10 +17,15 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group pb-3">
-                <label for="bringingOthers">Scheduling for a group?</label>
-                <input type="checkbox" class="form-check-input" id="bringingOthers">
-                <label class="form-check-label" for="bringingOthers">Yes / No</label>
-                <input type="name" class="form-control" id="inputCount" aria-describedby="nameHelo" placeholder="Party total">
+                <div v-if="show">
+                    <label for="bringingOthers">Scheduling for a group?</label>
+                    <input type="checkbox" class="form-check-input" id="bringingOthers" v-on:click="show = !show">
+                </div>
+                <div v-else>
+                     <label for="bringingOthers">Scheduling for a group?</label>
+                    <input type="checkbox" class="form-check-input" id="bringingOthers" v-on:click="show = !show">
+                    <input type="count" class="form-control" id="inputCount" aria-describedby="nameHelo" placeholder="Party total">
+                </div>
             </div>
             <div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -42,7 +47,8 @@
     data() {
       return {
         value: '',
-        context: null
+        context: null,
+        show: true
       }
     },
     methods: {
