@@ -8,12 +8,8 @@
         <b-calendar v-model="value" @context="onContext" locale="en-US"></b-calendar>
         </div>
         <div class="col"> 
-            <client-only>
-                <date-picker
-                placeholder="MM/DD/YYYY"
-                format="MM/dd/yyyy"
-                v-model="date_today" />
-            </client-only>
+            <vuejs-datepicker></vuejs-datepicker>
+            <datepicker placeholder="Select Date"></datepicker>
             <div class="form-group pb-3">
                 <label for="inputName">Name</label>
                 <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name">
@@ -48,14 +44,19 @@
 
 </template>
 
+
 <script>
+
+import Datepicker from 'vuejs-datepicker';
+
   export default {
+    components: {Datepicker},
     data() {
       return {
         value: '',
         context: null,
         show: true,
-        date_today:new Date()
+        date: new Date(2016, 9,  16)
       }
     },
     methods: {

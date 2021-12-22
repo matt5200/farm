@@ -22,8 +22,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/view-ui',
-    { src: '~/plugins/vuejs-datepicker', ssr: false },
+    // '@/plugins/view-ui',
+    // { src: '~/plugins/vuejs-datepicker', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -37,7 +37,8 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/fontawesome',
-    '@nuxtjs/bootstrap-vue'
+    '@nuxtjs/bootstrap-vue',
+    // "~/node_modules/vuejs-datepicker"
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
