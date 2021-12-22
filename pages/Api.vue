@@ -8,6 +8,12 @@
         <b-calendar v-model="value" @context="onContext" locale="en-US"></b-calendar>
         </div>
         <div class="col"> 
+            <client-only>
+                <date-picker
+                placeholder="MM/DD/YYYY"
+                format="MM/dd/yyyy"
+                v-model="date_today" />
+            </client-only>
             <div class="form-group pb-3">
                 <label for="inputName">Name</label>
                 <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name">
@@ -48,7 +54,8 @@
       return {
         value: '',
         context: null,
-        show: true
+        show: true,
+        date_today:new Date()
       }
     },
     methods: {
