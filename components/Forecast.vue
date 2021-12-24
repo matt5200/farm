@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="m">Our current forecast</h1>
-    <button v-on:click="toggleCelsius()" type="submit" class="btn btn-primary">
+    <button v-on:click="toggleCelsius" type="submit" class="btn btn-primary">
       Change temperature units (C/F)
     </button>
     <ul>
@@ -11,7 +11,7 @@
         :key="period.name"
       >
         <b>{{ period.name }}:</b>
-        {{getTemp(getTempperiod.temperature , period.temperatureUnit)}},
+        {{getTemp(period.temperature , period.temperatureUnit)}},
         {{ period.shortForecast }}
       </li>
     </ul>
@@ -36,13 +36,13 @@ export default {
   methods: {
     getTemp(temp, tempUnit) {
       if (this.showCelsius) {
-        return ((Number(temp) - 32) * 5) / 9 + "C";
+        return Math.floor((((Number(temp) - 32) * 5) / 9)) + "C";
       } else {
         return temp + tempUnit;
       }
     },
     toggleCelsius() {
-      showCelsius = !showCelsius;
+      this.showCelsius = !this.showCelsius;
     },
   },
 };
