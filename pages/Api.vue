@@ -28,14 +28,7 @@
           </div>
         </div>
       <div class="col-md-5">
-        <h1 class="m">Our current forecast</h1>
-          <ul v-if="weather">
-            <li class="forecast" v-for="period in weather.properties.periods" :key="period.name">
-              <b>{{period.name}}:</b>
-              {{period.temperature}}{{period.temperatureUnit}},
-              {{period.shortForecast}}
-            </li>
-          </ul>
+        
       </div>
     </div>
 </template>
@@ -72,9 +65,6 @@ import Datepicker from 'vuejs-datepicker';
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 
-.forecast {
-  display: block
-}
 
 @import '~/node_modules/bootstrap/scss/bootstrap.scss';
 @import "../scss/_base.normalize.scss";
