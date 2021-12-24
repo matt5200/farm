@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1 class="m">Our current forecast</h1>
+    <button v-on:click="toggleCelsius()" type="submit" class="btn btn-primary">
+      Change temperature units (C/F)
+    </button>
     <ul>
       <li
         class="forecast"
@@ -8,7 +11,7 @@
         :key="period.name"
       >
         <b>{{ period.name }}:</b>
-        {{ period.temperature }}{{ period.temperatureUnit }},
+        {{getTemp(getTempperiod.temperature , period.temperatureUnit)}},
         {{ period.shortForecast }}
       </li>
     </ul>
@@ -16,14 +19,30 @@
 </template>
 
 <script>
-
 export default {
+  data() {
+    return {
+      showCelsius: false,
+    };
+  },
   name: "Forecast",
   // Set component props
   props: {
     weather: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    getTemp(temp, tempUnit) {
+      if (this.showCelsius) {
+        return ((Number(temp) - 32) * 5) / 9 + "C";
+      } else {
+        return temp + tempUnit;
+      }
+    },
+    toggleCelsius() {
+      showCelsius = !showCelsius;
     },
   },
 };
@@ -34,7 +53,7 @@ export default {
 // Store page content
 
 .forecast {
-  display: block
+  display: block;
 }
 
 @import "~/node_modules/bootstrap/scss/bootstrap.scss";

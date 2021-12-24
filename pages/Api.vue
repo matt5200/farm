@@ -54,11 +54,6 @@ import Datepicker from 'vuejs-datepicker';
         weather: undefined
         }
     },
-    methods: {
-      onContext(ctx) {
-        this.context = ctx
-      }
-    }
   }
 
 </script>
