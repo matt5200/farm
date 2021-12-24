@@ -7,7 +7,7 @@
     <ul>
       <li
         class="forecast"
-        v-for="period in weather.properties"
+        v-for="period in weather.properties.periods"
         :key="period.name"
       >
         <b>{{ period.name }}:</b>
@@ -29,7 +29,6 @@ export default {
   // Set component props
   props: {
     weather: {
-      type: Object,
       required: true,
     },
   },
