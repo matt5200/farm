@@ -7,7 +7,7 @@
     <ul>
       <li
         class="forecast"
-        v-for="period in weather.properties.periods"
+        v-for="period in weather.properties"
         :key="period.name"
       >
         <b>{{ period.name }}:</b>
