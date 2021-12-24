@@ -1,10 +1,7 @@
 <template>
- <div class="row">
-     <div class="row">
-        <h1 class="m" >Schedule Your Visit Today</h1>
-      </div>
     <div class="row">
       <div class="col-md-5">
+          <h1 class="m" >Schedule Your Visit Today</h1>
           <label for="forVisitDate">Date of visit</label>
           <datepicker class="pb-3" placeholder="Select Date"></datepicker>
           <div class="form-group pb-3">
@@ -30,8 +27,17 @@
               <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
+      <div class="col-md-5">
+        <h1 class="m">Our current forecast</h1>
+          <ul v-if="weather">
+            <li class="forecast" v-for="period in weather.properties.periods" :key="period.name">
+              <b>{{period.name}}:</b>
+              {{period.temperature}}{{period.temperatureUnit}},
+              {{period.shortForecast}}
+            </li>
+          </ul>
+      </div>
     </div>
-  </div>
 </template>
 
 
@@ -39,27 +45,20 @@
 
 import Datepicker from 'vuejs-datepicker';
 
- async function getData() {
-      try {
-          const res = await fetch('http://bloowatch.org/developers/json/species');
-          const data = await res.json();
-          console.log(data);
-      } catch(err) {
-          console.log(err);
-      }
-  }
-
-    getData();
-
   export default {
+    async fetch() {
+      this.weather = await fetch(
+        'https://api.weather.gov/gridpoints/SEW/125,50/forecast'
+      ).then(res => res.json())
+    },
     components: {Datepicker},
     data() {
       return {
         value: '',
         context: null,
         show: true,
-        date: new Date(2016, 9,  16)
-      }
+        weather: undefined
+        }
     },
     methods: {
       onContext(ctx) {
@@ -67,10 +66,15 @@ import Datepicker from 'vuejs-datepicker';
       }
     }
   }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
+
+.forecast {
+  display: block
+}
 
 @import '~/node_modules/bootstrap/scss/bootstrap.scss';
 @import "../scss/_base.normalize.scss";

@@ -37,7 +37,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/fontawesome',
-    '@nuxtjs/bootstrap-vue'
+    '@nuxtjs/bootstrap-vue',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
