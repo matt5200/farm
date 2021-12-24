@@ -28,7 +28,7 @@
           </div>
         </div>
       <div class="col-md-5">
-        
+        <Forecast v-if="weather" :weather="weather"/>
       </div>
     </div>
 </template>
@@ -36,6 +36,7 @@
 
 <script>
 
+import Forecast from '../components/Forecast.vue'
 import Datepicker from 'vuejs-datepicker';
 
   export default {
@@ -44,7 +45,7 @@ import Datepicker from 'vuejs-datepicker';
         'https://api.weather.gov/gridpoints/SEW/125,50/forecast'
       ).then(res => res.json())
     },
-    components: {Datepicker},
+    components: {Datepicker, Forecast},
     data() {
       return {
         value: '',

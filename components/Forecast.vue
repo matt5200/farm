@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="m">Our current forecast</h1>
-    <ul v-if="weather">
+    <ul>
       <li
         class="forecast"
         v-for="period in weather.properties.periods"
@@ -15,17 +15,10 @@
   </div>
 </template>
 
-
 <script>
-import { defineComponent } from "@vue/composition-api";
 
-export default defineComponent({
+export default {
   name: "Forecast",
-  data() {
-    return {
-      bool,
-    };
-  },
   // Set component props
   props: {
     weather: {
@@ -33,12 +26,16 @@ export default defineComponent({
       required: true,
     },
   },
-});
+};
 </script>
 
 
 <style lang="scss">
 // Store page content
+
+.forecast {
+  display: block
+}
 
 @import "~/node_modules/bootstrap/scss/bootstrap.scss";
 @import "../scss/_base.normalize.scss";
