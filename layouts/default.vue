@@ -16,7 +16,7 @@
         <div class="navbar">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <nuxt-link class="nav-link" to="/Home">Home</nuxt-link>
+                <nuxt-link class="nav-link" to="/">Home</nuxt-link>
               </li>
                 <li class="nav-item">
               <nuxt-link class="nav-link" to="/Blog">Blog</nuxt-link>
